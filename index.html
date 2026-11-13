@@ -6,10 +6,10 @@
   <title>Iqbal Digital Studio — Jasa Pembuatan Website & Solusi Digital Berkelas</title>
   <meta name="description" content="Jasa pembuatan website profesional, company profile berkelas, toko online, web app custom, landing page konversi tinggi, UI/UX, dan maintenance oleh Mas Iqbal. WhatsApp: 08962244610." />
   
-  <!-- Fonts -->
+  <!-- Fonts (Cinzel Luxury Roman, Cormorant Garamond Editorial, Instrument Serif & Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -144,9 +144,10 @@
 
     /* Typography Styles */
     .serif-accent {
-      font-family: 'Instrument Serif', Georgia, serif;
+      font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
       font-style: italic;
-      font-weight: 400;
+      font-weight: 600;
+      font-size: 1.1em;
       letter-spacing: -0.01em;
     }
 
@@ -155,8 +156,9 @@
       letter-spacing: 0.12em;
     }
 
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #12151e 0%, #876208 40%, #b5891a 80%, #cf9f26 100%);
+    .gold-gradient-text,
+    .serif-gold {
+      background: linear-gradient(135deg, #876208 0%, #b5891a 38%, #e5b334 72%, #cf9f26 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -179,21 +181,22 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      padding: 7px 18px;
+      padding: 8px 20px;
       border-radius: 999px;
-      background: rgba(181, 137, 26, 0.08);
-      border: 1px solid rgba(181, 137, 26, 0.3);
+      background: linear-gradient(135deg, rgba(181, 137, 26, 0.1) 0%, rgba(207, 159, 38, 0.04) 100%);
+      border: 1px solid rgba(181, 137, 26, 0.35);
       color: var(--gold-dark);
-      font-size: 0.8rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(181, 137, 26, 0.1);
+      margin-bottom: 22px;
+      box-shadow: 0 4px 16px rgba(181, 137, 26, 0.08);
     }
 
     .section-header {
-      max-width: 720px;
+      max-width: 760px;
       margin-bottom: 58px;
     }
 
@@ -204,18 +207,20 @@
     }
 
     .section-title {
-      font-size: clamp(2.1rem, 4.2vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.035em;
+      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
       margin-bottom: 18px;
       color: var(--text-primary);
+      text-wrap: balance;
     }
 
     .section-desc {
       color: var(--text-secondary);
-      font-size: 1.08rem;
-      line-height: 1.72;
+      font-size: 1.06rem;
+      line-height: 1.74;
+      text-wrap: balance;
     }
 
     /* Buttons & Interactive Magnetic Micro-Interactions */
@@ -507,12 +512,51 @@
     }
 
     .hero-title {
-      font-size: clamp(2.6rem, 5.2vw, 4.3rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.05rem, 4.6vw, 3.85rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
       margin-bottom: 24px;
       color: var(--text-primary);
+      max-width: 680px;
+      text-wrap: balance;
+    }
+
+    .hero-title .serif-gold {
+      font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.14em;
+      background: linear-gradient(135deg, #876208 0%, #b5891a 35%, #e5b334 70%, #98771b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      padding: 0 4px;
+      letter-spacing: -0.01em;
+      filter: drop-shadow(0 2px 8px rgba(181, 137, 26, 0.22));
+    }
+
+    .hero-title .serif-dark {
+      font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.12em;
+      color: var(--text-primary);
+      display: inline-block;
+      position: relative;
+      padding: 0 2px;
+    }
+
+    .hero-title .serif-dark::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 2.5px;
+      background: linear-gradient(90deg, #b5891a, #cf9f26, transparent);
+      border-radius: 2px;
+      opacity: 0.85;
     }
 
     .hero-subtitle {
@@ -1872,15 +1916,15 @@
       <div class="reveal visible">
         <div class="availability-pill">
           <span class="pulse-dot"></span>
-          <span>Open Booking Proyek • Fast Response Langsung Mas Iqbal</span>
+          <span>✦ Studio Pembuatan Website Berkelas • Konsultasi Langsung Mas Iqbal ✦</span>
         </div>
 
         <h1 class="hero-title">
-          Website <span class="serif-accent shimmer-text">Berkelas</span> yang Mengubah Pengunjung Menjadi Klien.
+          Website <span class="serif-gold">Berkelas</span> yang Mengubah Pengunjung Menjadi <span class="serif-dark">Klien</span>.
         </h1>
 
         <p class="hero-subtitle">
-          Layanan eksklusif arsitektur website company profile, landing page konversi tinggi, toko online otomatis, custom web application, dan UI/UX modern bersama <strong style="color: var(--text-primary);">Iqbal Digital Studio</strong>.
+          Layanan eksklusif arsitektur website company profile, landing page konversi tinggi, toko online otomatis, custom web app, dan UI/UX modern berstandar agensi kelas atas bersama <strong style="color: var(--text-primary);">Mas Iqbal</strong>.
         </p>
 
         <div class="hero-cta">
@@ -2006,9 +2050,9 @@
   <section id="layanan">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Layanan Komprehensif</span>
-        <h2 class="section-title">Solusi Digital <span class="serif-accent gold-gradient-text">All-in-One</span> untuk Meningkatkan Valuasi Bisnis.</h2>
-        <p class="section-desc">Bukan sekadar template pasaran. Setiap baris kode dan komponen visual dirancang khusus untuk membangun kredibilitas serta mendongkrak penjualan Anda.</p>
+        <span class="section-tag">✦ Layanan Komprehensif ✦</span>
+        <h2 class="section-title">Solusi Arsitektur Web <span class="serif-gold">Bespoke &amp; Elegan</span> untuk Menumbuhkan Bisnis Anda.</h2>
+        <p class="section-desc">Bukan sekadar template biasa. Setiap baris kode dan komponen visual dirancang presisi untuk membangun otoritas, rasa percaya, dan daya tarik bisnis Anda.</p>
       </div>
 
       <div class="services-grid">
@@ -2135,12 +2179,12 @@
       <div class="calculator-section reveal">
         <div class="calculator-grid">
           <div>
-            <span class="section-tag">Interactive Estimator</span>
-            <h2 class="section-title" style="font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 14px;">
-              Hitung Simulasi <span class="serif-accent gold-gradient-text">Investasi</span> Website Anda.
+            <span class="section-tag">✦ Estimasi Investasi ✦</span>
+            <h2 class="section-title" style="font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: 14px;">
+              Hitung Biaya Pembuatan Website <span class="serif-gold">Secara Transparan</span>.
             </h2>
             <p class="section-desc" style="margin-bottom: 30px;">
-              Pilih spesifikasi yang Anda perlukan. Biaya akan terhitung secara transparan dan rincian ini dapat langsung dikirimkan ke WhatsApp Mas Iqbal.
+              Pilih spesifikasi dan fitur yang Anda butuhkan. Rincian investasi akan terhitung secara otomatis dan dapat langsung dikonsultasikan via WhatsApp.
             </p>
 
             <div class="calc-options-group">
@@ -2216,9 +2260,9 @@
   <section id="portofolio" style="background: var(--bg-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Showcase &amp; Karya Unggulan</span>
-        <h2 class="section-title">Sentuhan Visual yang <span class="serif-accent gold-gradient-text">Memikat</span> Sejak Detik Pertama.</h2>
-        <p class="section-desc">Berikut representasi struktur desain dan sistem mutakhir yang telah kami develop untuk berbagai lini usaha prestisius.</p>
+        <span class="section-tag">✦ Masterpiece Showcase ✦</span>
+        <h2 class="section-title">Karya Terpilih dengan Sentuhan Estetika <span class="serif-gold">Tingkat Tinggi</span>.</h2>
+        <p class="section-desc">Representasi standar kualitas, kecepatan loading prima, dan tampilan pixel-perfect yang telah dipercaya oleh berbagai lini usaha.</p>
       </div>
 
       <div class="filter-tabs reveal">
@@ -2337,9 +2381,9 @@
   <section id="paket">
     <div class="container">
       <div class="section-header center reveal">
-        <span class="section-tag">Investasi Transparan</span>
-        <h2 class="section-title">Pilihan Paket Sesuai <span class="serif-accent gold-gradient-text">Tahapan</span> Bisnis Anda.</h2>
-        <p class="section-desc">Tanpa biaya tak terduga. Seluruh paket dikerjakan dengan standar arsitektur profesional dan dukungan langsung dari Mas Iqbal.</p>
+        <span class="section-tag">✦ Investasi Transparan ✦</span>
+        <h2 class="section-title">Pilihan Paket Terkurasi untuk <span class="serif-gold">Akselerasi Bisnis</span> Anda.</h2>
+        <p class="section-desc">Investasi terukur dengan garansi kualitas 100%, pengerjaan tepat waktu, dan pendampingan personal langsung oleh Mas Iqbal.</p>
       </div>
 
       <div class="pricing-grid">
@@ -2410,8 +2454,9 @@
   <section id="proses" style="background: var(--bg-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Alur Kerja Terstruktur</span>
-        <h2 class="section-title">Dari Konsep Menjadi Website <span class="serif-accent gold-gradient-text">Siap Pakai</span> dalam 4 Langkah.</h2>
+        <span class="section-tag">✦ Metodologi Kerja ✦</span>
+        <h2 class="section-title">Proses Eksekusi Terstruktur dari <span class="serif-gold">Konsep hingga Peluncuran</span>.</h2>
+        <p class="section-desc">Alur kerja presisi dalam 4 tahapan sistematis untuk memastikan proyek selesai tepat waktu dengan hasil sempurna.</p>
       </div>
 
       <div class="process-grid">
@@ -2446,8 +2491,9 @@
   <section id="testimoni">
     <div class="container">
       <div class="section-header center reveal">
-        <span class="section-tag">Ulasan Klien</span>
-        <h2 class="section-title">Cerita Sukses dari Mereka yang <span class="serif-accent gold-gradient-text">Telah Membuktikan</span>.</h2>
+        <span class="section-tag">✦ Social Proof &amp; Reputasi ✦</span>
+        <h2 class="section-title">Kepercayaan Nyata dari Mitra Bisnis <span class="serif-gold">yang Telah Membuktikan</span>.</h2>
+        <p class="section-desc">Testimoni otentik dari para pemilik bisnis yang merasakan langsung peningkatan kredibilitas dan omzet setelah websitenya kami bangun.</p>
       </div>
 
       <div class="testi-grid">
@@ -2500,8 +2546,9 @@
   <section id="faq" style="background: var(--bg-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
     <div class="container">
       <div class="section-header center reveal">
-        <span class="section-tag">FAQ &amp; Informasi</span>
-        <h2 class="section-title">Pertanyaan yang <span class="serif-accent gold-gradient-text">Kerap Diajukan</span>.</h2>
+        <span class="section-tag">✦ Panduan &amp; Informasi ✦</span>
+        <h2 class="section-title">Jawaban Transparan Seputar Layanan <span class="serif-gold">Pembuatan Website</span>.</h2>
+        <p class="section-desc">Segala hal penting yang perlu Anda ketahui sebelum memulai kolaborasi pembuatan website.</p>
       </div>
 
       <div class="faq-list">
@@ -2561,12 +2608,12 @@
     <div class="container">
       <div class="contact-box reveal">
         <div>
-          <span class="section-tag">Konsultasi Eksklusif</span>
-          <h2 class="section-title" style="font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-bottom: 16px;">
-            Mulai Diskusi Proyek Website <span class="serif-accent gold-gradient-text">Impian</span> Anda.
+          <span class="section-tag">✦ Private Concierge ✦</span>
+          <h2 class="section-title" style="font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: 16px;">
+            Wujudkan Website Berkelas Impian Anda <span class="serif-gold">Mulai Hari Ini</span>.
           </h2>
           <p class="section-desc" style="margin-bottom: 24px;">
-            Isi formulir ringkas di samping untuk menyusun brief cepat. Pesan akan terformat otomatis dan langsung diteruskan ke WhatsApp pribadi Mas Iqbal untuk estimasi &amp; jadwal tercepat.
+            Diskusikan visi, struktur halaman, dan target bisnis Anda langsung bersama Mas Iqbal via WhatsApp pribadi 08962244610 untuk respon tercepat.
           </p>
 
           <div class="direct-info-card">
