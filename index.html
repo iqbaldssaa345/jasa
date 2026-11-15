@@ -134,12 +134,24 @@
 
         .reveal-init {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
         .reveal-active {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            visibility: visible !important;
+        }
+
+        /* JAMINAN DI HP & TABLET: SEMUA ELEMEN SELALU MUNCUL 100% TANPA KENDALA ANIMASI */
+        @media (max-width: 768px) {
+            .reveal-init {
+                opacity: 1 !important;
+                transform: none !important;
+                visibility: visible !important;
+                transition: none !important;
+            }
         }
 
         .code-box {
@@ -644,7 +656,7 @@
                 </div>
 
                 <!-- SEKSI TAMBAHAN: PROJECT BERBAGAI WEBSITE & DAFTAR HARGA -->
-                <div class="mt-20 pt-16 border-t border-white/10 reveal-init">
+                <div class="mt-20 pt-16 border-t border-white/10">
                     <div class="text-center max-w-3xl mx-auto mb-14">
                         <span class="text-brand-cyan font-mono text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20">Koleksi Project Spesialis</span>
                         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-white mt-4 tracking-tight">
@@ -1004,7 +1016,7 @@
                 </div>
 
                 <!-- TABEL ADD-ON & SERVIS KHUSUS PHP MYSQL -->
-                <div class="mt-16 reveal-init">
+                <div class="mt-16">
                     <div class="text-center max-w-2xl mx-auto mb-10">
                         <span class="text-brand-cyan font-mono text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20">Biaya Tambahan & Servis</span>
                         <h3 class="text-2xl sm:text-3xl font-heading font-black text-white mt-3">
@@ -1868,18 +1880,29 @@
 
         // 3. Scroll Reveal Animations (Intersection Observer)
         const revealElements = document.querySelectorAll('.reveal-init');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
-                    observer.unobserve(entry.target);
-                }
+        
+        // Di HP / Mobile langsung aktifkan semua tampilan agar tidak terhalang scroll observer
+        if (window.innerWidth <= 768 || !('IntersectionObserver' in window)) {
+            revealElements.forEach(el => el.classList.add('reveal-active'));
+        } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.02,
+                rootMargin: '120px 0px 120px 0px'
             });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -30px 0px'
-        });
-        revealElements.forEach(el => observer.observe(el));
+            revealElements.forEach(el => observer.observe(el));
+        }
+
+        // Jaminan Fallback: dalam 500ms pastikan semua elemen pasti terlihat di perangkat apapun
+        setTimeout(() => {
+            document.querySelectorAll('.reveal-init').forEach(el => el.classList.add('reveal-active'));
+        }, 500);
 
         // 4. Interactive Hero Constellation Particle Canvas
         const canvas = document.getElementById('hero-canvas');
@@ -1889,13 +1912,13 @@
 
             function resizeCanvas() {
                 width = canvas.width = window.innerWidth;
-                height = canvas.height = canvas.parentElement.offsetHeight;
+                height = canvas.height = (canvas.parentElement && canvas.parentElement.offsetHeight) || 600;
                 initParticles();
             }
 
             function initParticles() {
                 particles = [];
-                const numParticles = Math.min(Math.floor(width / 16), 65);
+                const numParticles = Math.min(Math.floor(width / (window.innerWidth < 768 ? 24 : 16)), 65);
                 for (let i = 0; i < numParticles; i++) {
                     particles.push({
                         x: Math.random() * width,
@@ -1975,7 +1998,7 @@
                     });
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
 
         if (counters.length > 0) {
             counterObserver.observe(counters[0]);
